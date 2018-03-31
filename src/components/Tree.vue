@@ -25,6 +25,10 @@
       copy: {
         type: Boolean,
         default: true
+      },
+      nodeProvider: {
+        type: Function,
+        default: () => Node
       }
     },
     methods: {
@@ -73,9 +77,10 @@
       console.log(`render timer--${new Date().getTime()}`)
       let roots = this.roots
       let nodeMap = this.nodeMap
+      let nodeComp = this.nodeProvider()
       let nodeRender = function (data) {
         // console.log(data)
-        return createElement('Node',
+        return createElement(nodeComp,
           {
             props: {
               id: data.id,

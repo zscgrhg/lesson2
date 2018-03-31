@@ -10,7 +10,7 @@
       <span v-else>----</span>
     </span>
     <strong v-bind:class="{ 'bg-brown-3': !isLeaf, 'bg-light-green-9': isLeaf}"
-            @click="echo">{{nodeMap[id].label}}</strong>
+            @click="echo">{{nodeMap[id].label}}<em class="text-gray"> oops this is a new node</em></strong>
     <div class="node-child" v-if="expanded&&!isLeaf">
       <slot name="children"></slot>
     </div>
